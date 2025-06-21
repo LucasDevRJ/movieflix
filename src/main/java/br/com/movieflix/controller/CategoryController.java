@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController()
 @RequestMapping("/movieflix/category")
@@ -21,8 +22,16 @@ public class CategoryController {
 
     @PostMapping
     public Category saveCategory(@RequestBody Category category) {
-        System.out.println(category.getName());
         return categoryService.saveCategory(category);
+    }
+
+    @GetMapping("/{id}")
+    public Category getCategoryById(@PathVariable Long id) {
+        Optional<Category> optionalCategory = categoryService.findCategoryById(id);
+        if (optionalCategory.isPresent()) {
+            return optionalCategory.get();
+        }
+        return null;
     }
 
 }
