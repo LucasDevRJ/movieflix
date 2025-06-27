@@ -22,7 +22,7 @@ public class StreamingService {
         return streamingRepository.save(streaming);
     }
 
-    public Optional<Streaming> findById(Long id) {
+    public Optional<Streaming> findStreamingById(Long id) {
         return streamingRepository.findById(id);
     }
 
