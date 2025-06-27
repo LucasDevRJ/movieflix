@@ -5,5 +5,5 @@ CREATE TABLE movie(
     release_date date,
     rating numeric,
     created_at timestamp,
-    update_at timestamp
+    updated_at timestamp
 );
